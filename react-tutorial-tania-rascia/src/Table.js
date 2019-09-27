@@ -15,9 +15,10 @@
 
 		const rows = props.characterData.map((row, index) => {
 			return (
-				<tr key={ index }>
-					<td>{ row.name }</td>
-					<td>{ row.job }</td>
+				<tr key={index}>
+					<td>{row.name}</td>
+					<td>{row.job}</td>
+					<td><button onClick={() => props.removeCharacter(index)}>Delete</button></td>
 				</tr>
 			)
 		})
@@ -30,12 +31,12 @@
 	class Table extends Component {
 		render() {
 
-			const { characterData } = this.props
+			const { characterData, removeCharacter } = this.props
 
 			return (
 				<table>
 					<TableHeader />
-					<TableBody characterData={ characterData } />
+					<TableBody characterData={characterData} removeCharacter={removeCharacter} />
 				</table>
 			)
 		}
