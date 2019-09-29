@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import TodoItems from './TodoItems';
+import "./TodoList.css";
 
 class TodoList extends Component {
 
@@ -21,7 +23,7 @@ class TodoList extends Component {
 
 			this.setState((previousState) => {
 				return {
-					item: previousState.items.concat(newItem)
+					items: previousState.items.concat(newItem)
 				};
 			});
 
@@ -42,6 +44,7 @@ class TodoList extends Component {
 							<button type="submit">Add</button>
 						</form>
 					</div>
+					<TodoItems entries={this.state.items} />
 				</div>
 			);
 	}
